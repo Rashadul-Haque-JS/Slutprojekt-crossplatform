@@ -10,7 +10,7 @@ export const Clock = () => {
     setInterval(updateTime, 1000)
   return (
     <div className='clock'>
-        <h1>Sverige: {currentTime}</h1>
+        <h4 className='hidden-clock'>Sverige: {currentTime}</h4>
     </div>
   )
 }
