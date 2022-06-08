@@ -4,7 +4,15 @@ import React from 'react'
 export const Footer = () => {
   return (
     <div className='footer'>
-      this is Footer
+      <article>
+        <p>IT-Högskolan </p>
+      <article>
+        <p>
+        © 2022 www.iths.se
+        </p>
+      </article>
+
+      </article>
     </div>
   )
 }
