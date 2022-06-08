@@ -1,18 +1,18 @@
 .showcase{
-    min-height: 216px;
+    height: 240px;
     background-color:#fff;
-    margin: 1rem 0 0 0;
+    margin: 1rem 2rem 0 2rem;
     text-align: center;
     border-radius: 8px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    box-shadow: 5px 5px 15px -5px #000000;
     img{
-        padding: .5rem;
+        height: 220px;
+        // padding: 0.5rem;
+        margin-left: 5rem;
     }
-
     article{
         width: 50%;
         display: flex;
@@ -22,17 +22,30 @@
         h1{
             text-transform: capitalize;
         }
-
         h1,h2,h3,p{
             text-align: center;
             padding: .25rem 0;
         }
         .info{
-
             padding-top: 32px;
             font-size: .8rem;
             color: maroon;
         }
     }
 
+}
+
+@media screen and(max-width: 768px){
+   .showcase{
+       display: flex;
+       flex-direction: column;
+       height: 100%;
+       img{
+           width: 100%;
+           margin: auto;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+       }
+   }
 }
