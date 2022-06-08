@@ -1,92 +1,75 @@
 [
     {
         "id": "1",
-        "program_name": "JavaScript-Utvecklare",
-        "ort": "Stockholm",
+        "program_name": "javaScript-utvecklare",
+        "ort": "Stockholm & Göteborg",
         "poäng": "400YH",
         "Last_date": "2022-09-01",
-        "start": "2022-08-15",
-        "image": "..assets/images/ai.png"
+        "start": "2022-08-22"
     },
     {
-        "id": "1",
-        "program_name": "Frontendtvecklare",
-        "ort": "Stockholm",
+        "id": "2",
+        "program_name": "frontendtvecklare",
+        "ort": "Stockholm & Göteborg",
         "poäng": "400YH",
         "Last_date": "2022-09-01",
-        "start": "2022-08-15",
-        "image": "..assets/images/ai.png"
+        "start": "2022-08-15"
     },
     {
-        "id": "1",
-        "program_name": "Javatvecklare",
-        "ort": "Stockholm",
+        "id": "3",
+        "program_name": "javautvecklare",
+        "ort": "Stockholm & Göteborg",
         "poäng": "400YH",
         "Last_date": "2022-09-01",
-        "start": "2022-08-15",
-        "image": "..assets/images/ai.png"
+        "start": "2022-08-22"
     },
     {
-        "id": "1",
-        "program_name": "UX-designer",
-        "ort": "Stockholm",
+        "id": "4",
+        "program_name": "uX-designer",
+        "ort": "Göteborg",
         "poäng": "400YH",
         "Last_date": "2022-09-01",
-        "start": "2022-08-15",
-        "image": "..assets/images/ai.png"
+        "start": "2022-08-22"
     },
     {
-        "id": "1",
-        "program_name": "Agil-utvecklare",
+        "id": "5",
+        "program_name": "agil-utvecklare",
+        "ort": "Stockholm",
+        "poäng": "60YH",
+        "Last_date": "Ansökan är stängd",
+        "start": "Kontakta skolan"
+    },
+
+    {
+        "id": "7",
+        "program_name": "iT-projektledare",
         "ort": "Stockholm",
         "poäng": "400YH",
         "Last_date": "2022-09-01",
-        "start": "2022-08-15",
-        "image": "..assets/images/ai.png"
+        "start": "2022-08-15"
     },
     {
-        "id": "1",
-        "program_name": ".Net-utvecklare",
+        "id": "8",
+        "program_name":"iT-säkerhetsspecialist",
         "ort": "Stockholm",
         "poäng": "400YH",
         "Last_date": "2022-09-01",
-        "start": "2022-08-15",
-        "image": "./ai.png"
+        "start": "2022-08-15"
     },
     {
-        "id": "1",
-        "program_name": "IT-projektledare",
+        "id": "9",
+        "program_name": "applikationsutvecklare",
         "ort": "Stockholm",
         "poäng": "400YH",
         "Last_date": "2022-09-01",
-        "start": "2022-08-15",
-        "image": "..assets/images/ai.png"
+        "start": "2022-08-15"
     },
     {
-        "id": "1",
-        "program_name": " IT-säkerhetsspecialist",
+        "id": "10",
+        "program_name": "pythonprogrammering",
         "ort": "Stockholm",
         "poäng": "400YH",
         "Last_date": "2022-09-01",
-        "start": "2022-08-15",
-        "image": "./program/ai.png"
-    },
-    {
-        "id": "1",
-        "program_name": "Applikationsutvecklare",
-        "ort": "Stockholm",
-        "poäng": "400YH",
-        "Last_date": "2022-09-01",
-        "start": "2022-08-15",
-        "image": "..assets/images/ai.png"
-    },
-    {
-        "id": "1",
-        "program_name": "Pythonprogrammering",
-        "ort": "Stockholm",
-        "poäng": "400YH",
-        "Last_date": "2022-09-01",
-        "start": "2022-08-15",
-        "image": "..assets/images/ai.png"
+        "start": "2022-08-15"
     }
 ]
