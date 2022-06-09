@@ -1,8 +1,63 @@
 .weather{
     min-height: 216px;
-    background-color: #ccc;
-    padding: 2rem;
+    // background-color: #ccc;
+    padding: .2rem;
     text-align: center;
     border-radius: 8px;
     box-shadow: 5px 5px 15px -5px #000000;
+    display: flex;
+    justify-content: space-evenly;
+    color:#fff;
+    // background-color:rgb(43, 6, 70);
+    background-image: url("https://images.pexels.com/photos/1431822/pexels-photo-1431822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-position: bottom;
+    opacity: 0.9;
+    .location{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding:  1rem;
+        h1{
+            padding: .6rem;
+            font-size: 2.5rem;
+        }
+
+    }
+    .info-block{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: .5rem;
+        .weather-info{
+            display: flex;
+        }
+        .next-weather{
+
+        }
+    }
+
 }
+
+@media screen and(max-width: 768px){
+    .weather{
+
+        .location{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding:  1rem;
+            h1{
+                padding: .6rem;
+                font-size: 2.5rem;
+            }
+
+        }
+        .info-block{
+            display: none;
+
+        }
+    }
+
+ }

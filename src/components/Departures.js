@@ -32,13 +32,13 @@ export const Departures = () => {
     <div className="departures">
       {tunnelbana.map((data, index) => {
         const newData = tunnelbana.pop(data)
-       return <p key={index}>{newData.time}</p>;
+       return <p key={index}>{newData.name}</p>;
       })}
-
+{/* 
       {tvärbana.map((data, index) => {
         const newData = tunnelbana.pop(data)
-       return <p key={index}>{newData.time}</p>;
-      })}
+       return <p key={index}>{newData.name}</p>;
+      })} */}
     </div>
   );
 };
