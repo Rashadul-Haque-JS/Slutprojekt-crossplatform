@@ -10,7 +10,7 @@
     box-shadow: 5px 5px 15px -5px #000000;
     img{
         height: 265px;
-        // padding: 0.5rem;
+        padding: 0.5rem;
         margin-left: 5rem;
     }
     article{
@@ -42,6 +42,7 @@
        height: 100%;
        img{
            width: 100%;
+           padding: 2rem .5rem;
            margin: auto;
            display: flex;
            justify-content: center;
