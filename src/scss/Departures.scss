@@ -1,10 +1,29 @@
-.departures{
-    // min-height: 216px;
-    background-color: #ccc;
-    padding: 2rem;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 5px 5px 15px -5px #000000;
+.departures {
+  // min-height: 216px;
+  background-color: #000000;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 5px 5px 15px -5px #000000;
+  color: gold;
 
+  .trackPlace {
+    .textTrack {
+      position: relative;
+      // overflow: hidden;
 
+      .rollingText {
+        position: absolute;
+        animation: time 60s linear infinite;
+      }
+
+      @keyframes time {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    }
+  }
 }
