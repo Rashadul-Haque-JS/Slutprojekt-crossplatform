@@ -30,8 +30,20 @@ export const Departures = () => {
 
   return (
     <div className="departures">
+
+      {tunnelbana.map((data, index) => {
+        const newData = tunnelbana.pop(data)
+       return <p key={index}>{newData.name}</p>;
+      })}
+
+      {tvärbana.map((data, index) => {
+        const newData = tunnelbana.pop(data)
+       return <p key={index}>{newData.name}</p>;
+      })} 
+
       <p>{tunnelbana.time}</p>
       <p>{ tvärbana.time}</p>
+
     </div>
   );
 };
