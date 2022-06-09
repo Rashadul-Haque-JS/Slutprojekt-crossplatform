@@ -16,13 +16,13 @@ export const Departures = () => {
         (object) => object.name === "Länstrafik -Tunnelbana 14"
       );
 
-      setTunnelbana(t_bana);
+      setTunnelbana(t_bana[0]);
 
       const tvär_bana = response.data.Departure.filter(
         (object) => object.name === "Länstrafik - Spårväg 30"
       );
 
-      setTvärbana(tvär_bana);
+      setTvärbana(tvär_bana[0]);
     };
 
     fetchTime();
@@ -30,15 +30,20 @@ export const Departures = () => {
 
   return (
     <div className="departures">
+
       {tunnelbana.map((data, index) => {
         const newData = tunnelbana.pop(data)
        return <p key={index}>{newData.name}</p>;
       })}
-{/* 
+
       {tvärbana.map((data, index) => {
         const newData = tunnelbana.pop(data)
        return <p key={index}>{newData.name}</p>;
-      })} */}
+      })} 
+
+      <p>{tunnelbana.time}</p>
+      <p>{ tvärbana.time}</p>
+
     </div>
   );
 };
