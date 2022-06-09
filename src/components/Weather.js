@@ -3,7 +3,13 @@ import "../scss/Weather.scss";
 import axios from "axios";
 
 export const Weather = () => {
-  const [weather, setWeather] = useState({ temp: 0, feels: 0, min: 0, max: 0, icon: ''});
+  const [weather, setWeather] = useState({
+    temp: 0,
+    feels: 0,
+    min: 0,
+    max: 0,
+    icon: "",
+  });
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -17,15 +23,17 @@ export const Weather = () => {
         max: response.data.main.temp_max,
         icon: response.data.weather[0].icon,
       });
-
     };
     fetchWeather();
   }, []);
-  console.log(weather.icon);
+
 
   return (
     <div className="weather">
-      <img src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="" />
+      <img
+        src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+        alt="weather-icon"
+      />
 
       <h1>Nu: {weather.temp}°C</h1>
       <h2>Känns som : {weather.feels}°C</h2>
