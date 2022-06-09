@@ -37,7 +37,7 @@ export const Departures = () => {
 
       {tvärbana.map((data, index) => {
         const newData = tunnelbana.pop(data)
-       return <p key={index}>{data.time}</p>;
+       return <p key={index}>{newData.time}</p>;
       })}
     </div>
   );
