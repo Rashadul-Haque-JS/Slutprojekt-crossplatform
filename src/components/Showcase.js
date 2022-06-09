@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState, useEffect } from "react";
 import "../scss/Showcase.scss";
-import programs from "./program.json";
+import programs from "../assets/program.json";
 
 
 export const Showcase = () => {
