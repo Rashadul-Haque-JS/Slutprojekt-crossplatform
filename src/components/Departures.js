@@ -13,7 +13,7 @@ export const Departures = () => {
       );
 
       const t_bana = response.data.Departure.filter(
-        (object) => object.name === "Länstrafik -Tunnelbana 14"
+        (object) => object.name == "Länstrafik -Tunnelbana 14"
       );
 
       setTunnelbana(t_bana);
