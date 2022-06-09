@@ -1,7 +1,8 @@
 /* eslint-disable no-restricted-globals */
 console.log("Hello from Service Worker!!")
 const statics = self.__WB_MANIFEST
-console.log(statics)
+console.log(statics);
+
 
 self.addEventListener("install", event => {
   console.log("Installing!")
