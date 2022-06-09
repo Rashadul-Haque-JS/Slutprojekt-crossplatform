@@ -17,6 +17,7 @@ export const Weather = () => {
         max: response.data.main.temp_max,
         icon: response.data.weather[0].icon,
       });
+
     };
     fetchWeather();
   }, []);
@@ -24,7 +25,8 @@ export const Weather = () => {
 
   return (
     <div className="weather">
-      <article>icon: {weather.icon}</article>
+      <img src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="" />
+
       <h1>Nu: {weather.temp}°C</h1>
       <h2>Känns som : {weather.feels}°C</h2>
       <h3>Dagens minst: {weather.min}°C</h3>
