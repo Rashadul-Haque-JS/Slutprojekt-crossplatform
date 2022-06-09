@@ -44,6 +44,7 @@ export const Departures = () => {
 
   return (
     <div className="departures">
+
       <div className="trackPlace" style={{ display: "flex" }}>
         <p style={{ paddingRight: "1rem" }}> T-bana : Mörby C</p>
         <div className="textTrack">
@@ -65,6 +66,7 @@ export const Departures = () => {
         </div>
       </div>
       {error && <p style={{ color: "red" }}>{error}</p>}
+
     </div>
   );
 };
