@@ -3,7 +3,7 @@ import "../scss/Weather.scss";
 import axios from "axios";
 
 export const Weather = () => {
-  const [weather, setWeather] = useState({ temp: 0, feels: 0, min: 0, max: 0 });
+  const [weather, setWeather] = useState({ temp: 0, feels: 0, min: 0, max: 0, icon: ''});
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -15,17 +15,20 @@ export const Weather = () => {
         feels: response.data.main.feels_like,
         min: response.data.main.temp_min,
         max: response.data.main.temp_max,
+        icon: response.data.weather[0].icon,
       });
     };
     fetchWeather();
   }, []);
+  console.log(weather.icon);
 
   return (
     <div className="weather">
-      <h1>Nu: {weather.temp}</h1>
-      <h2>Känns som : {weather.feels}</h2>
-      <h3>Dagens minst: {weather.min}</h3>
-      <h3>Dagens max {weather.max}</h3>
+      <article>icon: {weather.icon}</article>
+      <h1>Nu: {weather.temp}°C</h1>
+      <h2>Känns som : {weather.feels}°C</h2>
+      <h3>Dagens minst: {weather.min}°C</h3>
+      <h3>Dagens max {weather.max}°C</h3>
     </div>
   );
 };

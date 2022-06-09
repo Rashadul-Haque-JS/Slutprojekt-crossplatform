@@ -22,9 +22,7 @@ function App() {
           <Quoto />
           <Weather />
       </main>
-      <footer>
         <Footer/>
-      </footer>
     </div>
   );
 }
