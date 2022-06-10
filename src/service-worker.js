@@ -12,21 +12,24 @@ self.addEventListener("install", (event) => {
 });
 
 addEventListener("fetch", (event) => {
-  if (!(event.request.url.indexOf("http") === 0)) return;
-  event.respondWith(
-    caches.match(event.request).then(async (response) => {
-      if (response) {
-        return response;
-      }
+  if (!(event.request.url.indexOf("http") === 0)) {
+    return;
+  } else {
+    event.respondWith(
+      caches.match(event.request).then(async (response) => {
+        if (response) {
+          return response;
+        }
 
-      const networkResponse = await fetch(event.request);
+        const networkResponse = await fetch(event.request);
 
-      const clonedResponse = networkResponse.clone();
+        const clonedResponse = networkResponse.clone();
 
-      const runtimeCache = await caches.open("RAOM");
-      runtimeCache.put(event.request, networkResponse);
+        const runtimeCache = await caches.open("RAOM");
+        runtimeCache.put(event.request, networkResponse);
 
-      return Promise.resolve(clonedResponse);
-    })
-  );
+        return Promise.resolve(clonedResponse);
+      })
+    );
+  }
 });
