@@ -29,11 +29,11 @@ export const Departures = () => {
         );
 
         if (tvär_bana.length > 10) {
-          setTunnelbana(tvär_bana.slice(1, 11));
+          setTvärbana(tvär_bana.slice(1, 11));
         } else {
-          setTunnelbana(tvär_bana);
+          setTvärbana(tvär_bana);
         }
-        
+
       } catch (err) {
         if (err.message) setError("Underhållning pågår!");
       }
