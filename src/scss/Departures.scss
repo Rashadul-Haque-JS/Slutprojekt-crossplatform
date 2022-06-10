@@ -11,11 +11,16 @@
   .trackPlace {
     .textTrack {
       position: relative;
-      // overflow: hidden;
+      width: 450px;
+      overflow: hidden;
 
       .rollingText {
         position: absolute;
-        animation: time 60s linear infinite;
+        animation: time 20s linear infinite;
+        display: flex;
+        justify-content: space-between;
+
+
       }
 
       @keyframes time {

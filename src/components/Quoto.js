@@ -7,7 +7,7 @@ import quotes from "../assets/quotes.json";
 export const Quoto = () => {
   const [index, setIndex] = useState(0);
   useEffect(() => {
-    const newDay = "0:00:00";
+    const newDay = "10:28:00";
     let currentTime = null;
     const intervalID = setInterval(() => {
       currentTime = moment().format("H:mm:ss");
