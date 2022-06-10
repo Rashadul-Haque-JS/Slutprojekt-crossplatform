@@ -48,7 +48,7 @@ export const Departures = () => {
       <div className="trackPlace" style={{ display: "flex" }}>
         <p style={{ paddingRight: "1rem" }}> T-bana : Mörby C</p>
         <div className="textTrack">
-          <div className="tunnelbana rollingText" style={{ display: "flex" }}>
+          <div className="rollingText" >
             {tunnelbana.map((train, index) => {
               return <p key={index}> {train.time}** </p>;
             })}
@@ -56,9 +56,9 @@ export const Departures = () => {
         </div>
       </div>
       <div className="trackPlace" style={{ display: "flex" }}>
-        <p style={{ paddingRight: "1rem" }}> Spårväg : Solna station</p>
+        <p style={{ paddingRight: "1rem" }}> Spårväg : Solna S</p>
         <div className="textTrack">
-          <div className="tvärbana rollingText" style={{ display: "flex" }}>
+          <div className="rollingText" >
             {tvärbana.map((trum, index) => {
               return <p key={index}>{trum.time}** </p>;
             })}
