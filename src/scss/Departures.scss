@@ -2,16 +2,24 @@
 .departures {
   // min-height: 216px;
   background-color: #000000;
-  padding: 2rem;
+  // padding: 0  2rem;
   border-radius: 8px;
   box-shadow: 5px 5px 15px -5px #000000;
   color: gold;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
 
   .trackPlace {
+    padding-left:  2rem;
+    p{
+      // padding: 0 2rem;
+      width: 150px;
+    }
     .textTrack {
       position: relative;
-      width: 450px;
+      width: 450px;   // om vi använder width den responsive gick sönder
       overflow: hidden;
 
       .rollingText {
