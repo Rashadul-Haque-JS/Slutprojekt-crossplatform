@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../scss/Weather.scss";
-import axios from "axios";
+
+import { weatherAPI } from "../api/index";
 
 export const Weather = () => {
   const [weather, setWeather] = useState({
@@ -15,9 +16,7 @@ export const Weather = () => {
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const response = await axios.get(
-        "https://api.openweathermap.org/data/2.5/weather?q=stockholm&appid=9fc24343cc8f14c8d53f63eabf338c4f&&units=metric"
-        );
+      const response = await weatherAPI()
         setWeather({
           name: response.data.name,
           temp: response.data.main.temp,
