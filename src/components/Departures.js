@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../scss/Departures.scss";
-import axios from "axios";
+import { departureAPI } from "../api/index";
 
 export const Departures = () => {
   const [tunnelbana, setTunnelbana] = useState([]);
@@ -10,9 +10,8 @@ export const Departures = () => {
   useEffect(() => {
     const fetchTime = async () => {
       try {
-        const response = await axios.get(
-          "https://api.resrobot.se/v2.1/departureBoard?id=740004046&format=json&accessId=9a9102bb-25cf-4f56-a5a6-9123fe8bc5be"
-        );
+        const response = await departureAPI()
+        
 
         const t_bana = response.data.Departure.filter(
           (object) => object.name === "Länstrafik -Tunnelbana 14"
