@@ -4,7 +4,7 @@ const path = require('path')
 const fs = require('fs')
 const cert = fs.readFileSync(path.join(__dirname, 'cert', 'localhost+1.pem'))
 const key = fs.readFileSync(path.join(__dirname, 'cert', 'localhost+1-key.pem'))
-const {PORT} = require('./config')
+const PORT = process.env.PORT || 8000
 const app = express()
 
 app.use( express.json() )
