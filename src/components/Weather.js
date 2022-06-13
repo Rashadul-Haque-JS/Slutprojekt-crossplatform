@@ -25,7 +25,7 @@ export const Weather = () => {
           max: response.data.main.temp_max,
           icon: response.data.weather[0].icon,
           description: response.data.weather[0].main,
-          // description: response.data.weather.description,
+          
         });
         console.log(response.data.weather[0].main);
       };
