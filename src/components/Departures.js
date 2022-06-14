@@ -8,7 +8,7 @@ export const Departures = () => {
   const [tunnelbana_13, setTunnelbana_13] = useState([]);
   const [tvärbana_solna, setTvärbana_solna] = useState([]);
   const [tvärbana_sickla, setTvärbana_sickla] = useState([]);
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchTime = async () => {
@@ -73,9 +73,9 @@ export const Departures = () => {
           }
 
         } catch (err) {
-          if (err.message) setError("Underhållning pågår!");
+          console.log(err.message)
         }
-      }, 3000);
+      }, 10000);
       return () => clearInterval(intervalId);
     };
 
@@ -124,8 +124,6 @@ export const Departures = () => {
           </div>
         </div>
       </div>
-
-      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 };
