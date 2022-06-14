@@ -12,73 +12,50 @@ export const Departures = () => {
 
   useEffect(() => {
     const fetchTime = async () => {
-      const intervalId = setInterval(async () => {
-        try {
-          const response = await departureAPI();
-          const t_bana = response.data.Departure.filter(
-            (object) => object.name === "Länstrafik -Tunnelbana 14"
-          );
+      try {
+        const response = await departureAPI();
+        const t_bana = response.data.Departure.filter(
+          (object) => object.name === "Länstrafik -Tunnelbana 14"
+        );
 
-          if (t_bana.length > 6) {
-            setTunnelbana_14(() => {
-              return t_bana.slice(1, 6);
-            });
-          } else {
-            setTunnelbana_14(() => {
-              return t_bana;
-            });
-          }
-
-          const t_bana_13 = response.data.Departure.filter(
-            (object) => object.name === "Länstrafik -Tunnelbana 13"
-          );
-
-          if (t_bana.length > 6) {
-            setTunnelbana_13(() => {
-              return t_bana_13.slice(1, 6);
-            });
-          } else {
-            setTunnelbana_13(() => {
-              return t_bana_13;
-            });
-          }
-
-          const tvär_bana_solna = response.data.Departure.filter(
-            (object) => object.direction === "Solna station"
-          );
-
-          if (tvär_bana_solna.length > 6) {
-            setTvärbana_solna(() => {
-              return tvär_bana_solna.slice(1, 6);
-            });
-          } else {
-            setTvärbana_solna(() => {
-              return tvär_bana_solna;
-            });
-          }
-
-
-          const tvär_bana_sickla = response.data.Departure.filter(
-            (object) => object.direction === "Sickla station (Nacka kn)"
-          );
-
-          if (tvär_bana_solna.length > 6) {
-            setTvärbana_sickla(() => {
-              return tvär_bana_sickla.slice(1, 6);
-            });
-          } else {
-            setTvärbana_solna(() => {
-              return tvär_bana_sickla;
-            });
-          }
-
-        } catch (err) {
-          console.log(err.message)
+        if (t_bana.length > 6) {
+          setTunnelbana_14(t_bana.slice(1, 6));
+        } else {
+          setTunnelbana_14(t_bana);
         }
 
-      }, 5000);
+        const t_bana_13 = response.data.Departure.filter(
+          (object) => object.name === "Länstrafik -Tunnelbana 13"
+        );
 
-      return () => clearInterval(intervalId);
+        if (t_bana.length > 6) {
+          setTunnelbana_13(t_bana_13.slice(1, 6));
+        } else {
+          setTunnelbana_13(t_bana_13);
+        }
+
+        const tvär_bana_solna = response.data.Departure.filter(
+          (object) => object.direction === "Solna station"
+        );
+
+        if (tvär_bana_solna.length > 6) {
+          setTvärbana_solna(tvär_bana_solna.slice(1, 6));
+        } else {
+          setTvärbana_solna(tvär_bana_solna);
+        }
+
+        const tvär_bana_sickla = response.data.Departure.filter(
+          (object) => object.direction === "Sickla station (Nacka kn)"
+        );
+
+        if (tvär_bana_solna.length > 6) {
+          setTvärbana_sickla(tvär_bana_sickla.slice(1, 6));
+        } else {
+          setTvärbana_solna(tvär_bana_sickla);
+        }
+      } catch (err) {
+        console.log(err.message);
+      }
     };
 
     fetchTime();
