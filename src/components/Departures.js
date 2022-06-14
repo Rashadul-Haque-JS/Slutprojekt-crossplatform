@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../scss/Departures.scss";
 import { departureAPI } from "../api/index";
-import preloader from "../assets/images/preloader.gif";
+// import preloader from "../assets/images/preloader.gif";
 
 export const Departures = () => {
   const [tunnelbana_14, setTunnelbana_14] = useState([]);
@@ -95,6 +95,16 @@ export const Departures = () => {
         </div>
       </div>
       <div className="trackPlace" style={{ display: "flex" }}>
+        <p style={{ paddingRight: "1rem" }}> T-bana : Mörby C</p>
+        <div className="textTrack">
+          <div className="rollingText">
+            {tunnelbana_13.map((train, index) => {
+              return <p key={index}> {train.time}** </p>;
+            })}
+          </div>
+        </div>
+      </div>
+      <div className="trackPlace" style={{ display: "flex" }}>
         <p style={{ paddingRight: "1rem" }}> Spårväg : Solna S</p>
         <div className="textTrack">
           <div className="rollingText">
@@ -104,6 +114,17 @@ export const Departures = () => {
           </div>
         </div>
       </div>
+      <div className="trackPlace" style={{ display: "flex" }}>
+        <p style={{ paddingRight: "1rem" }}> Spårväg : Solna S</p>
+        <div className="textTrack">
+          <div className="rollingText">
+            {tvärbana_sickla.map((trum, index) => {
+              return <p key={index}>{trum.time}** </p>;
+            })}
+          </div>
+        </div>
+      </div>
+
       {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
