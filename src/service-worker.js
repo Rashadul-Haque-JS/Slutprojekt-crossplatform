@@ -11,22 +11,19 @@ self.addEventListener("install", (event) => {
   );
 });
 
-addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.open("RAOM").then((runtimeCache) => {
-      return caches.match(event.request).then((response) => {
-        if (response) {
-          return response;
-        } else {
-          const networkResponse = fetch(event.request);
+addEventListener("fetch", (e) => {
+  e.respondWith(
+    caches.open("RAOM").then(cache => {
+      cache.match(e.request).then(cacheResponse => {
+        const networkFetch = fetch(e.request).then(networkResponse => {
+          cache.put(e.request, networkResponse.clone());
+          return networkResponse
+        });
 
-          networkResponse.then((response) => {
-            runtimeCache.put(event.request, response.clone());
-          });
-
-          return networkResponse;
-        }
+        return cacheResponse || networkFetch;
       });
+    }).catch(error => {
+      console.log('error in cache open: ', error)
     })
-  );
+  )
 });
