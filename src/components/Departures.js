@@ -9,33 +9,38 @@ export const Departures = () => {
 
   useEffect(() => {
     const fetchTime = async () => {
-      try {
-        const response = await departureAPI()
-        
+      const intervalId = setInterval(async()=>{
+        try {
+          const response = await departureAPI()
 
-        const t_bana = response.data.Departure.filter(
-          (object) => object.name === "Länstrafik -Tunnelbana 14"
-        );
+          const t_bana = response.data.Departure.filter(
+            (object) => object.name === "Länstrafik -Tunnelbana 14"
+          );
 
-        if (t_bana.length > 10) {
-          setTunnelbana(t_bana.slice(1, 11));
-        } else {
-          setTunnelbana(t_bana);
+          if (t_bana.length > 10) {
+            setTunnelbana(t_bana.slice(1, 11));
+          } else {
+            setTunnelbana(t_bana);
+          }
+
+          const tvär_bana = response.data.Departure.filter(
+            (object) => object.name === "Länstrafik - Spårväg 30"
+          );
+
+          if (tvär_bana.length > 10) {
+            setTvärbana(tvär_bana.slice(1, 11));
+          } else {
+            setTvärbana(tvär_bana);
+          }
+
+        } catch (err) {
+          if (err.message) setError("Underhållning pågår!");
         }
 
-        const tvär_bana = response.data.Departure.filter(
-          (object) => object.name === "Länstrafik - Spårväg 30"
-        );
 
-        if (tvär_bana.length > 10) {
-          setTvärbana(tvär_bana.slice(1, 11));
-        } else {
-          setTvärbana(tvär_bana);
-        }
 
-      } catch (err) {
-        if (err.message) setError("Underhållning pågår!");
-      }
+      },3000)
+      return () => clearInterval(intervalId);
     };
 
     fetchTime();
