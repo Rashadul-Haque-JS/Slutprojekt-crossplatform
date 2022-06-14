@@ -1,61 +1,62 @@
 import React, { useState, useEffect } from "react";
 import "../scss/Weather.scss";
 import { weatherAPI } from "../api/index";
+import preloader from "../assets/images/preloader.gif";
 
 export const Weather = () => {
-  const [weather, setWeather] = useState({
-    temp: 0,
-    feels: 0,
-    min: 0,
-    max: 0,
-    icon: "",
-    name: "",
-    description: "",
-  });
+  const [weather, setWeather] = useState(null);
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const response = await weatherAPI()
-        setWeather({
-          name: response.data.name,
-          temp: response.data.main.temp,
-          feels: response.data.main.feels_like,
-          min: response.data.main.temp_min,
-          max: response.data.main.temp_max,
-          icon: response.data.weather[0].icon,
-          description: response.data.weather[0].main,
-          // description: response.data.weather.description,
-        });
-        
-      };
+      const intervalId = setInterval(async () => {
+        try {
+          const response = await weatherAPI();
+          setWeather(() => {
+            return response.data;
+          });
+        } catch (err) {
+          console.log(err.message);
+        }
+      }, 3000);
+      return () => clearInterval(intervalId);
+    };
     fetchWeather();
   }, []);
 
-
   return (
     <div className="weather">
-      <article  className="location">
-        <img
-          src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
-          alt="weather-icon" width='60px'
-          />
-          <h2>{weather.name}</h2>
-          <h1>{weather.temp}°C</h1>
-          <h3>{weather.description}</h3>
-      </article>
+      {weather && (
+        <>
+          <article className="location">
+            <img
+              src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+              alt="weather-icon"
+              width="60px"
+            />
+            <h2>Stockholm</h2>
+            <h1>{weather.main.temp}°C</h1>
+            {/* <h3>{weather.description}</h3> */}
+          </article>
 
-      <div  className="info-block">
-        <article className="weather-info">
-          {/* <h2>Other Info</h2> */}
-          <h4>Känns som : {weather.feels}°C</h4>
-          <h4>Dagens minst: {weather.min}°C</h4>
-          <h4>Dagens max: {weather.max}°C</h4>
-        </article>
-        <article className="next-weather">
-            <h2>coming soon next weather</h2>
-        </article>
-      </div>
-
+          <div className="info-block">
+            <article className="weather-info">
+              {/* <h2>Other Info</h2> */}
+              <h4>Känns som : {weather.main.feels_like}°C</h4>
+              <h4>Dagens minst: {weather.main.temp_min}°C</h4>
+              <h4>Dagens max: {weather.main.temp_max}°C</h4>
+            </article>
+            <article className="next-weather">
+              <h2>coming soon next weather</h2>
+            </article>
+          </div>
+        </>
+      )}
+      {!weather && (
+        <>
+          {/* styles lilbit */}
+          <img src={preloader} alt="Preloader" />
+        </>
+      )}
     </div>
   );
 };
