@@ -75,7 +75,9 @@ export const Departures = () => {
         } catch (err) {
           console.log(err.message)
         }
+
       }, 5000);
+
       return () => clearInterval(intervalId);
     };
 
