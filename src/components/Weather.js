@@ -17,7 +17,7 @@ export const Weather = () => {
         } catch (err) {
           console.log(err.message);
         }
-      }, 3000);
+      }, 5000);
       return () => clearInterval(intervalId);
     };
     fetchWeather();
@@ -60,3 +60,5 @@ export const Weather = () => {
     </div>
   );
 };
+
+// COMMENTS FOR PUSH AFTER CHANGED
