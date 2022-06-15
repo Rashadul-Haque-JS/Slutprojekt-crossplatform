@@ -30,7 +30,7 @@ export const Quoto = () => {
 
   return (
     <div className="quoto">
-      <h1 className="headline">Dagens quoto</h1>
+      <h1 className="headline">Dagens Citat</h1>
       {qod && qod.text && <p className="info">❝{qod.text}❞</p>}
       {!qod && <p className="error">Something wrong!</p>}
       {qod && qod.author && <p className="info">by {qod.author}</p>}

@@ -4,10 +4,10 @@ import { departureAPI } from "../api/index";
 // import preloader from "../assets/images/preloader.gif";
 
 export const Departures = () => {
-  const [tunnelbana_14, setTunnelbana_14] = useState([]);
-  const [tunnelbana_13, setTunnelbana_13] = useState([]);
-  const [tvärbana_solna, setTvärbana_solna] = useState([]);
-  const [tvärbana_sickla, setTvärbana_sickla] = useState([]);
+  const [mörby, setMörby] = useState([]);
+  const [fruängen, setFruängen] = useState([]);
+  const [solna, setSolna] = useState([]);
+  const [sickla, setSickla] = useState([]);
   // const [error, setError] = useState("");
 
   useEffect(() => {
@@ -16,29 +16,29 @@ export const Departures = () => {
         try {
           const response = await departureAPI();
           const t_bana = response.data.Departure.filter(
-            (object) => object.name === "Länstrafik -Tunnelbana 14"
+            (object) => object.direction === "Mörby centrum T-bana (Danderyd kn)"
           );
 
-          if (t_bana.length > 6) {
-            setTunnelbana_14(() => {
-              return t_bana.slice(1, 6);
+          if (t_bana.length > 5) {
+            setMörby(() => {
+              return t_bana.slice(1, 5);
             });
           } else {
-            setTunnelbana_14(() => {
+            setMörby(() => {
               return t_bana;
             });
           }
 
           const t_bana_13 = response.data.Departure.filter(
-            (object) => object.name === "Länstrafik -Tunnelbana 13"
+            (object) => object.direction === "Fruängen T-bana (Stockholm kn)"
           );
 
-          if (t_bana.length > 6) {
-            setTunnelbana_13(() => {
-              return t_bana_13.slice(1, 6);
+          if (t_bana.length > 5) {
+            setFruängen(() => {
+              return t_bana_13.slice(1, 5);
             });
           } else {
-            setTunnelbana_13(() => {
+            setFruängen(() => {
               return t_bana_13;
             });
           }
@@ -47,36 +47,33 @@ export const Departures = () => {
             (object) => object.direction === "Solna station"
           );
 
-          if (tvär_bana_solna.length > 6) {
-            setTvärbana_solna(() => {
-              return tvär_bana_solna.slice(1, 6);
+          if (tvär_bana_solna.length > 5) {
+            setSolna(() => {
+              return tvär_bana_solna.slice(1, 5);
             });
           } else {
-            setTvärbana_solna(() => {
+            setSolna(() => {
               return tvär_bana_solna;
             });
           }
-
 
           const tvär_bana_sickla = response.data.Departure.filter(
             (object) => object.direction === "Sickla station (Nacka kn)"
           );
 
-          if (tvär_bana_solna.length > 6) {
-            setTvärbana_sickla(() => {
-              return tvär_bana_sickla.slice(1, 6);
+          if (tvär_bana_solna.length > 5) {
+            setSickla(() => {
+              return tvär_bana_sickla.slice(1, 5);
             });
           } else {
-            setTvärbana_solna(() => {
+            setSickla(() => {
               return tvär_bana_sickla;
             });
           }
-
         } catch (err) {
-          console.log(err.message)
+          console.log(err.message);
         }
-
-      }, 5000);
+      }, 10000);
 
       return () => clearInterval(intervalId);
     };
@@ -86,13 +83,47 @@ export const Departures = () => {
 
   return (
     <div className="departures">
-      <div className="trackPlace" style={{ display: "flex" }}>
+      <h4>Liljeholmen</h4>
+      <div className="T-bana">
+        <div className="info-block">
+          <article>
+          <p>Mörby-C:</p>
+            {mörby.map((train, index) => {
+              return <p key={index}> {train.time} </p>;
+            })}
+          </article>
+        </div>
+        <div className="info-block">
+          <article>
+          <p>Fruäng-C:</p>
+            {fruängen.map((train, index) => {
+              return <p key={index}> {train.time} </p>;
+            })}
+          </article>
+        </div>
+      </div>
+      <div className="tvärbana">
+      <div className="info-block">
+          <article>
+          <p> Solna-C:</p>
+            {solna.map((train, index) => {
+              return <p key={index}> {train.time} </p>;
+            })}
+          </article>
+        </div>
+        <div className="info-block">
+          <article>
+          <p> Sickla-C:</p>
+            {sickla.map((train, index) => {
+              return <p key={index}> {train.time} </p>;
+            })}
+          </article>
+        </div>
+      </div>
+      {/* <div className="trackPlace" style={{ display: "flex" }}>
         <p style={{ paddingRight: "1rem" }}> T-bana : Mörby C</p>
         <div className="textTrack">
           <div className="rollingText">
-            {tunnelbana_14.map((train, index) => {
-              return <p key={index}> {train.time}** </p>;
-            })}
           </div>
         </div>
       </div>
@@ -125,7 +156,7 @@ export const Departures = () => {
             })}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
