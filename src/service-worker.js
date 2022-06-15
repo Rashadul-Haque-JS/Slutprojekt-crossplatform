@@ -11,6 +11,7 @@ self.addEventListener("install", (event) => {
   );
 });
 
+// Trying to fix SW update issue
 addEventListener("fetch", (e) => {
   e.respondWith(
     caches.open("RAOM").then(cache => {
