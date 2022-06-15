@@ -8,17 +8,17 @@ export const Weather = () => {
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const intervalId = setInterval(async () => {
-        try {
+      try {
+        const intervalId = setInterval(async () => {
           const response = await weatherAPI();
           setWeather(() => {
             return response.data;
           });
-        } catch (err) {
-          console.log(err.message);
-        }
-      }, 5000);
-      return () => clearInterval(intervalId);
+        }, 5000);
+        return () => clearInterval(intervalId);
+      } catch (err) {
+        console.log(err.message);
+      }
     };
     fetchWeather();
   }, []);
@@ -33,20 +33,30 @@ export const Weather = () => {
               alt="weather-icon"
               width="60px"
             />
-            <h2>Stockholm</h2>
-            <h1>{weather.main.temp}°C</h1>
+            <h1 style={{ fontSize: "2.5vh" }}>Stockholm</h1>
+            <h1 style={{ fontSize: "3vh" }}>{weather.main.temp}°C</h1>
             {/* <h3>{weather.description}</h3> */}
           </article>
 
           <div className="info-block">
             <article className="weather-info">
-              {/* <h2>Other Info</h2> */}
-              <h4>Känns som : {weather.main.feels_like}°C</h4>
-              <h4>Dagens minst: {weather.main.temp_min}°C</h4>
-              <h4>Dagens max: {weather.main.temp_max}°C</h4>
+              <span>
+                <h2>Känns</h2>
+                <h2>{weather.main.feels_like}°C</h2>
+              </span>
+              <span>
+                <h2>Minst</h2>
+                <h2>{weather.main.temp_min}°C</h2>
+              </span>
+              <span>
+                <h2>Max</h2>
+                <h2>{weather.main.temp_max}°C</h2>
+              </span>
             </article>
             <article className="next-weather">
-              <h2>coming soon next weather</h2>
+              <h2 style={{ fontSize: "2vh", textTransform: "capitalize" }}>
+                {weather.weather[0].description}
+              </h2>
             </article>
           </div>
         </>

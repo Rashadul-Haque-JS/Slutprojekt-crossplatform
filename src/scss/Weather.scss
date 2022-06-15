@@ -1,5 +1,4 @@
 .weather{
-    min-height: 216px;
     // background-color: #ccc;
     padding: 0.2rem;
     text-align: center;
@@ -20,7 +19,7 @@
         padding: 0 1rem;
         h1{
             padding: .6rem;
-            font-size: 2rem;
+            font-size: 3vh;
         }
 
     }
@@ -31,10 +30,15 @@
         // padding: .5rem;
         .weather-info{
             display: flex;
+            justify-content: space-between;
+            span{
+                margin:0rem 1rem;
+                h2{
+                    font-size: 1.5vh;
+                }
+            }
         }
-        .next-weather{
 
-        }
     }
 
 }

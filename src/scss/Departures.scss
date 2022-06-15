@@ -1,4 +1,3 @@
-
 .departures {
   // min-height: 216px;
   background-color: #000000;
@@ -9,82 +8,79 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  h4{
+  h4 {
     text-align: center;
-    font-size: 1.2rem;
-    padding: .4rem;
+    font-size: 2vh;
+    padding: 0.4rem;
     color: cyan;
   }
-  .T-bana{
+  .T-bana {
     display: flex;
     flex-direction: column;
-    .info-block{
-      article{
+    .info-block {
+      article {
         display: flex;
         justify-content: space-evenly;
-        p{
-          // text-align: center;
-
+        p {
+          font-size: 1.5vh;
         }
       }
     }
   }
-  .tvärbana{
+  .tvärbana {
     display: flex;
     flex-direction: column;
-    .info-block{
-      article{
+    .info-block {
+      article {
         justify-content: space-evenly;
         display: flex;
-        p{
+        p {
           width: fit-content;
-          // text-align: center;
+
+          font-size: 1.5vh;
         }
       }
     }
   }
 }
 
-
-@media screen and(max-width: 768px){
-  .departures{
+@media screen and(max-width: 768px) {
+  .departures {
     padding: 1rem;
-    .T-bana{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        margin-bottom: 1rem;
-        // gap: 1rem;
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-        // flex-direction: column;
-        article{
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          p{
-            padding: .3rem;
-            text-align: center;
-          }
+    .T-bana {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 1rem;
+      // gap: 1rem;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      // flex-direction: column;
+      article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        p {
+          padding: 0.3rem;
+          text-align: center;
         }
       }
-      .tvärbana{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: .3rem;
-        article{
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          p{
-            padding: .3rem;
-          }
+    }
+    .tvärbana {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.3rem;
+      article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        p {
+          padding: 0.3rem;
         }
-          // display: none;
-
       }
+      // display: none;
+    }
   }
-
 }

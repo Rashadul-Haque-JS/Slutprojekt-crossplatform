@@ -24,11 +24,11 @@ export const Showcase = () => {
     <div className="showcase">
       <img src={require(`../assets/images/${programs[index].program_name}.png`)}/>
       <article>
-        <h1>{programs[index].program_name}</h1>
-        <h2>{programs[index].poäng}</h2>
-        <h3>{programs[index].ort}</h3>
-        <p style={{color: programs[index].program_name == 'agil-utvecklare' ? 'red': 'black' }}>Application deadline: {programs[index].Last_date}</p>
-        <p>Start date: {programs[index].start}</p>
+        <h1 style={{fontSize:'3vh'}}>{programs[index].program_name}</h1>
+        <h2 style={{fontSize:'2.5vh'}}>{programs[index].poäng}</h2>
+        <h3 style={{fontSize:'2.2vh'}}>{programs[index].ort}</h3>
+        <p style={{color: programs[index].program_name == 'agil-utvecklare' ? 'red': 'black', fontSize:'1.8vh' }}>Application deadline: {programs[index].Last_date}</p>
+        <p style={{fontSize:'1.8vh'}}>Start date: {programs[index].start}</p>
         <p className="info">More on: https://www.iths.se/utbildningar</p>
       </article>
     </div>

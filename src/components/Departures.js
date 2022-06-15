@@ -120,43 +120,6 @@ export const Departures = () => {
           </article>
         </div>
       </div>
-      {/* <div className="trackPlace" style={{ display: "flex" }}>
-        <p style={{ paddingRight: "1rem" }}> T-bana : Mörby C</p>
-        <div className="textTrack">
-          <div className="rollingText">
-          </div>
-        </div>
-      </div>
-      <div className="trackPlace" style={{ display: "flex" }}>
-        <p style={{ paddingRight: "1rem" }}> T-bana : Mörby C</p>
-        <div className="textTrack">
-          <div className="rollingText">
-            {tunnelbana_13.map((train, index) => {
-              return <p key={index}> {train.time}** </p>;
-            })}
-          </div>
-        </div>
-      </div>
-      <div className="trackPlace" style={{ display: "flex" }}>
-        <p style={{ paddingRight: "1rem" }}> Spårväg : Solna S</p>
-        <div className="textTrack">
-          <div className="rollingText">
-            {tvärbana_solna.map((trum, index) => {
-              return <p key={index}>{trum.time}** </p>;
-            })}
-          </div>
-        </div>
-      </div>
-      <div className="trackPlace" style={{ display: "flex" }}>
-        <p style={{ paddingRight: "1rem" }}> Spårväg : Solna S</p>
-        <div className="textTrack">
-          <div className="rollingText">
-            {tvärbana_sickla.map((trum, index) => {
-              return <p key={index}>{trum.time}** </p>;
-            })}
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

@@ -14,7 +14,8 @@ export const Clock = () => {
 
   return (
     <div className='clock'>
-        <h4 className='hidden-clock'>Sverige: {currentTime}</h4>
+      <p className='hidden-clock'>Sverige</p>
+      <p className='hidden-clock'>{currentTime}</p>
     </div>
   )
 }
