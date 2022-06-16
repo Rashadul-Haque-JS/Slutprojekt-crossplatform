@@ -9,3 +9,6 @@ export function register(){
     );
   }
   }
+
+
+  // Dear Service worker , you are so smart!
