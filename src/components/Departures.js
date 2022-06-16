@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../scss/Departures.scss";
 import { departureAPI } from "../api/index";
-// import preloader from "../assets/images/preloader.gif";
+import preloader from "../assets/images/preloader.gif";
 
 export const Departures = () => {
   const [mörby, setMörby] = useState([]);
@@ -16,7 +16,8 @@ export const Departures = () => {
         try {
           const response = await departureAPI();
           const t_bana = response.data.Departure.filter(
-            (object) => object.direction === "Mörby centrum T-bana (Danderyd kn)"
+            (object) =>
+              object.direction === "Mörby centrum T-bana (Danderyd kn)"
           );
 
           if (t_bana.length > 5) {
@@ -83,11 +84,17 @@ export const Departures = () => {
 
   return (
     <div className="departures">
+      {mörby.length < 1 &&
+        fruängen.length < 1 &&
+        solna.length < 1 &&
+        sickla.length < 1 && (
+          <img style={{ width: "20px" }} src={preloader} alt="Preloader" />
+        )}
       <h4>Liljeholmen</h4>
       <div className="T-bana">
         <div className="info-block">
           <article>
-          <p>Mörby-C:</p>
+            <p>Mörby-C:</p>
             {mörby.map((train, index) => {
               return <p key={index}> {train.time} </p>;
             })}
@@ -95,7 +102,7 @@ export const Departures = () => {
         </div>
         <div className="info-block">
           <article>
-          <p>Fruäng-C:</p>
+            <p>Fruäng-C:</p>
             {fruängen.map((train, index) => {
               return <p key={index}> {train.time} </p>;
             })}
@@ -103,9 +110,9 @@ export const Departures = () => {
         </div>
       </div>
       <div className="tvärbana">
-      <div className="info-block">
+        <div className="info-block">
           <article>
-          <p> Solna-C:</p>
+            <p> Solna-C:</p>
             {solna.map((train, index) => {
               return <p key={index}> {train.time} </p>;
             })}
@@ -113,7 +120,7 @@ export const Departures = () => {
         </div>
         <div className="info-block">
           <article>
-          <p> Sickla-C:</p>
+            <p> Sickla-C:</p>
             {sickla.map((train, index) => {
               return <p key={index}> {train.time} </p>;
             })}
