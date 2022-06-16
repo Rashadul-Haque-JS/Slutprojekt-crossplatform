@@ -7,20 +7,13 @@ export const Weather = () => {
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
-    const fetchWeather = async () => {
-      try {
-        const intervalId = setInterval(async () => {
-          const response = await weatherAPI();
-          setWeather(() => {
-            return response.data;
-          });
-        }, 5000);
-        return () => clearInterval(intervalId);
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
-    fetchWeather();
+    const intervalId = setInterval(async () => {
+      const response = await weatherAPI();
+      setWeather(() => {
+        return response.data;
+      });
+    }, 5000);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
